@@ -171,6 +171,7 @@ func initCommonFalg(flag *pflag.FlagSet) {
 	flagBoolean(flag, &cfg.MinimalInsert, "minimal-insert", "I", true, "使用包含多个VALUES列表的多行语法编写INSERT语句.")
 
 	flagBoolean(flag, &cfg.ShowGTID, "show-gtid", "", true, "显示gtid")
+	flagBoolean(flag, &cfg.ShowLogPos, "show-log-pos", "", true, "显示binlog pos位置点")
 	flagBoolean(flag, &cfg.ShowTime, "show-time", "", true, "显示执行时间,同一时间仅显示首次")
 	flagBoolean(flag, &cfg.ShowAllTime, "show-all-time", "", false, "显示每条SQL的执行时间")
 	flagBoolean(flag, &cfg.ShowThread, "show-thread", "", false, "显示线程号,便于区别同一进程操作")

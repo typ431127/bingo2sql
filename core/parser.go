@@ -181,6 +181,7 @@ type BinlogParserConfig struct {
 
 	// 输出设置
 	ShowGTID    bool // 输出GTID
+	ShowLogPos  bool // 输出位置点
 	ShowTime    bool // 输出执行时间(相同时间时仅返回首次)
 	ShowAllTime bool // 输出所有执行时间
 	ShowThread  bool // 输出线程号,方便判断同一执行人的操作
@@ -696,6 +697,10 @@ func (p *MyBinlogParser) myWrite(data *row) {
 			buf.WriteString(" # thread_id=")
 			buf.WriteString(strconv.Itoa(int(data.threadID)))
 		}
+		if p.Config().ShowLogPos {
+			buf.WriteString(" # log_pos=")
+			buf.WriteString(strconv.Itoa(int(data.e.Header.LogPos)))
+		}
 		buf.WriteString("\n")
 	} else if p.Config().ShowTime {
 		if p.lastTimestamp != data.e.Header.Timestamp {
@@ -710,6 +715,10 @@ func (p *MyBinlogParser) myWrite(data *row) {
 		if p.Config().ShowThread {
 			buf.WriteString(" # thread_id=")
 			buf.WriteString(strconv.Itoa(int(data.threadID)))
+		}
+		if p.Config().ShowLogPos {
+			buf.WriteString(" # log_pos=")
+			buf.WriteString(strconv.Itoa(int(data.e.Header.LogPos)))
 		}
 		buf.WriteString("\n")
 
