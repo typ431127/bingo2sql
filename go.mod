@@ -9,7 +9,7 @@ go 1.18
 require (
 	github.com/go-mysql-org/go-mysql v1.6.0
 	github.com/go-sql-driver/mysql v1.5.0
-	github.com/hanchuanchuan/goInception v1.2.0
+	github.com/hanchuanchuan/goInception v1.3.0
 	github.com/imroc/req v0.3.0
 	github.com/jinzhu/gorm v1.9.12
 	github.com/jinzhu/now v1.1.1
@@ -24,8 +24,6 @@ require (
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.6.2
 )
-
-require github.com/etcd-io/gofail v0.0.0-20180808172546-51ce9a71510a // indirect
 
 require (
 	github.com/andybalholm/brotli v0.0.0-20190621154722-5f990b63d2d6 // indirect
